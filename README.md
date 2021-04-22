@@ -14,6 +14,7 @@ And you should be good to go! Feel free to fork and submit pull requests. Thanks
 # Environment variables
 
 - `TOKEN` — Telegram bot token
+- `CHATS` — List of chats to work in
 
 Also, please, consider looking at `.env.sample`.
 

@@ -37,7 +37,7 @@ bot.command(
     for (const chat of chats) {
       console.log(`Banning ${ctx.message.reply_to_message.from.id} in ${chat}`)
       try {
-        await ctx.telegram.restrictChatMember(
+        await ctx.telegram.kickChatMember(
           chat,
           ctx.message.reply_to_message.from.id
         )
