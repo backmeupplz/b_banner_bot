@@ -37,11 +37,10 @@ bot.command(
     for (const chat of chats) {
       console.log(`Banning ${ctx.message.reply_to_message.from.id} in ${chat}`)
       try {
-        await ctx.telegram.callApi('kickChatMember', {
-          chat_id: chat,
-          user_id: ctx.message.reply_to_message.from.id,
-          revoke_messages: true,
-        })
+        await ctx.telegram.kickChatMember(
+          chat,
+          ctx.message.reply_to_message.from.id
+        )
       } catch (err) {
         ctx.reply(`Ошибка: ${err.message || err}`)
       }
