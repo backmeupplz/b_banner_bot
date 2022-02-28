@@ -46,7 +46,7 @@ bot.command(
       }
     }
     await ctx.replyWithHTML(
-      `<a href="tg://user?id=${ctx.message.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам`
+      `<a href="tg://user?id=${ctx.message.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам, YEET`
     )
     await ctx.deleteMessage()
   }
