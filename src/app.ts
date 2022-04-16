@@ -45,9 +45,15 @@ bot.command(
         ctx.reply(`Ошибка: ${err.message || err}`)
       }
     }
-    await ctx.replyWithHTML(
-      `<a href="tg://user?id=${ctx.message.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам, YEET`
-    )
+    try {
+      await ctx.replyWithHTML(
+        `<a href="tg://user?id=${ctx.message.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам, YEET`
+      , {
+        reply_to_message_id: ctx.message.reply_to_message.message_id
+      })
+    } catch (error) {
+      console.log(error)
+    }
     await ctx.deleteMessage()
   }
 )
