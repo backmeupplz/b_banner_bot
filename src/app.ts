@@ -44,6 +44,7 @@ bot.command('banEverywhere', onlyAdmin(), async (ctx) => {
       `<a href="tg://user?id=${ctx.msg.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам, YEET`,
       {
         parse_mode: 'HTML',
+        reply_to_message_id: ctx.msg.message_id,
       }
     )
   } catch (error) {
