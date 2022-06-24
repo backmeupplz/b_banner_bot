@@ -1,8 +1,8 @@
-import { Context } from 'telegraf'
-import { chats } from '@/helpers/chats'
+import { Context, NextFunction } from 'grammy'
+import chats from '@/helpers/chats'
 
-export async function checkLegitimateChat(ctx: Context, next: () => any) {
-  if (chats.includes(ctx.message?.chat.id)) {
+export default function (ctx: Context, next: NextFunction) {
+  if (ctx.chat?.id && chats.includes(ctx.chat.id)) {
     return next()
   }
 }

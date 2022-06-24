@@ -1,7 +1,7 @@
-import { Context } from 'telegraf'
+import { Context, NextFunction } from 'grammy'
 
-export async function checkReply(ctx: Context, next: () => any) {
-  if (!ctx.update.message?.reply_to_message?.from?.id) {
+export default function (ctx: Context, next: NextFunction) {
+  if (!ctx.msg?.reply_to_message?.from?.id) {
     return
   }
   return next()

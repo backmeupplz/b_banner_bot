@@ -1,3 +1,3 @@
-export const chats = process.env.CHATS.split(',').map(
-  (chatIdString) => +chatIdString
-)
+import env from '@/helpers/env'
+
+export default env.CHATS.split(',').map((chatIdString) => +chatIdString)
