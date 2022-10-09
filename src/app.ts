@@ -29,24 +29,10 @@ bot.command('banEverywhere', onlyAdmin(), async (ctx) => {
   if (!ctx.msg?.reply_to_message?.from?.id) {
     return
   }
-  for (const chat of chats) {
-    console.log(`Banning ${ctx.msg.reply_to_message.from.id} in ${chat}`)
-    try {
-      await ctx.api.banChatMember(chat, ctx.msg.reply_to_message.from.id, {
-        revoke_messages: true,
-      })
-    } catch (err) {
-      await ctx.reply(`Ошибка: ${err instanceof Error ? err.message : err}`)
-    }
-  }
   try {
-    await ctx.reply(
-      `<a href="tg://user?id=${ctx.msg.reply_to_message.from.id}">Пользователь</a> забанен по всем сообществам, YEET`,
-      {
-        parse_mode: 'HTML',
-        reply_to_message_id: ctx.msg.reply_to_message.message_id,
-      }
-    )
+    await ctx.reply(`Сорямба-кукарямба, я больше не баню по сообществам`, {
+      reply_to_message_id: ctx.msg.reply_to_message.message_id,
+    })
   } catch (error) {
     console.log(error)
   }
